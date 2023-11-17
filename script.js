@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const testimonials = [
     {
-      title: '#',
+      title: "#",
       text: "Growing up, I saw that every girl that had taken interest in anything technical or scientific had been undermined and underestimated in her field. That isn't fair, breaking this stereotype is a must. The first step I took towards doing this was to join SEF, a bootcamp that supported diversity and inclusion.",
       image: "Assets/1.jpeg",
     },
@@ -79,4 +79,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateTestimonial();
   setInterval(updateTestimonial, 5000);
+});
+document.addEventListener("DOMContentLoaded", function () {
+  var buttons = document.querySelectorAll(".show-more");
+
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var contentContainer = button.closest(".faq-card");
+      var hiddenContent = contentContainer.querySelector(".hidden-content");
+      hiddenContent.style.display =
+        hiddenContent.style.display === "none" ? "block" : "none";
+    });
+  });
 });
