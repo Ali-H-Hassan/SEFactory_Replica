@@ -37,3 +37,46 @@ function changeTab(tabNumber) {
       break;
   }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const titleElement = document.getElementById("testimonial-title");
+  const textElement = document.getElementById("testimonial-text");
+  const imageElement = document.getElementById("testimonial-image");
+
+  const testimonials = [
+    {
+      title: '#',
+      text: "Growing up, I saw that every girl that had taken interest in anything technical or scientific had been undermined and underestimated in her field. That isn't fair, breaking this stereotype is a must. The first step I took towards doing this was to join SEF, a bootcamp that supported diversity and inclusion.",
+      image: "Assets/1.jpeg",
+    },
+    {
+      title: "#",
+      text: "Looking back, I cannot believe that only a year ago, I knew almost nothing about programming, and now I am a professional software engineer working remotely for a startup located in Norway. The boot camp was a life-changing experience for me.",
+      image: "Assets/2.jpeg",
+    },
+    {
+      title: "#",
+      text: "Hiring skilled engineers has never been easy. With SE Factory, this became super easy and effective. Candidates are well-trained and we get to see their strengths before hiring, which is perfect for a growing startup.",
+      image: "Assets/3.jpeg",
+    },
+    {
+      title: "#",
+      text: "Our business is expanding thanks to talented and dedicated team members that we hired through SE Factory. Looking forward to hiring more developers from them as we grow.",
+      image: "Assets/4.jpeg",
+    },
+  ];
+
+  let currentIndex = 0;
+
+  function updateTestimonial() {
+    const testimonial = testimonials[currentIndex];
+    titleElement.textContent = testimonial.title;
+    textElement.textContent = testimonial.text;
+    imageElement.src = testimonial.image;
+
+    currentIndex = (currentIndex + 1) % testimonials.length;
+  }
+
+  updateTestimonial();
+  setInterval(updateTestimonial, 5000);
+});
